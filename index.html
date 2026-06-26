@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="fibodo-core.css" />
+  <link rel="stylesheet" href="bundle-builder.css" />
 </head>
 <body>
   <header class="site-header">
@@ -127,95 +128,127 @@
       </div>
     </section>
 
-    <section id="packages" class="packages section-panel section-break">
-      <div class="container package-wrap reveal">
-        <div class="section-intro compact">
-          <span class="eyebrow">Turn it up.</span>
-          <h2>Build your CORE. Your way.</h2>
-          <p>CORE gives you the foundation. Business packages give specific parts of your business more power. Choose what suits how you work now. Add more when the next big move calls.</p>
+    <section id="packages" class="packages section-panel section-break core-bundle-section">
+  <div class="container package-wrap reveal">
+    <div class="section-intro compact bundle-kicker-row">
+      <span class="eyebrow">Turn it up.</span>
+      <h2>Build your CORE. Your way.</h2>
+      <p>CORE gives you everything you need to run the business. Add the power-ups that match how you work, and watch your setup build in real time.</p>
+    </div>
+
+    <div class="bundle-builder" aria-label="CORE bundle builder">
+      <div class="builder-main">
+        <div class="builder-hero glass-light">
+          <div class="builder-orb" aria-hidden="true"><span>✦</span></div>
+          <div class="builder-hero-copy">
+            <span class="eyebrow dark">Build your perfect platform</span>
+            <h3>Start with CORE. Turn up what matters.</h3>
+            <p>CORE is always <strong>£25/month</strong>. Choose the business packages that strengthen the parts of your business you want to move next.</p>
+          </div>
+          <div class="builder-metric" aria-label="CORE price">
+            <small>CORE starts at</small>
+            <strong>£25</strong>
+            <span>/ month</span>
+          </div>
         </div>
 
-        <div class="bundle-builder" aria-label="CORE bundle builder">
-          <div class="builder-main">
-            <div class="builder-callout glass-light">
-              <div class="callout-icon">✦</div>
-              <div>
-                <span class="eyebrow dark">Build your perfect platform</span>
-                <h3>Start with CORE. Turn up what matters.</h3>
-                <p>CORE is always £25/month. Add the business packages that match how you work and watch your monthly total update instantly.</p>
-              </div>
-            </div>
+        <div class="builder-toolbar">
+          <div>
+            <span class="eyebrow dark">Pick your power</span>
+            <h3>Choose your business packages</h3>
+            <p>Add one. Add all five. Bundle pricing is applied automatically.</p>
+          </div>
+          <div class="toolbar-actions" aria-label="Bundle controls">
+            <button class="mini-btn" type="button" data-bundle-action="clear">CORE only</button>
+            <button class="mini-btn mini-btn-dark" type="button" data-bundle-action="all">Select all</button>
+          </div>
+        </div>
 
-            <div class="builder-toolbar">
-              <div>
-                <span class="eyebrow dark">Pick your power</span>
-                <h3>Choose your business packages</h3>
-              </div>
-              <div class="toolbar-actions">
-                <button class="mini-btn" type="button" data-bundle-action="clear">CORE only</button>
-                <button class="mini-btn mini-btn-dark" type="button" data-bundle-action="all">Select all</button>
-              </div>
-            </div>
+        <div class="module-grid" id="moduleGrid"></div>
 
-            <div class="module-grid" id="moduleGrid"></div>
-
-            <div class="saving-panel glass-light">
-              <div class="saving-copy">
-                <span class="eyebrow dark">Save more when you bundle</span>
-                <h3>The more you add, the lower the package price.</h3>
-                <p>The first package is £20/month. Add more and the bundle total gets better. All five packages are just £47.50/month.</p>
-              </div>
-              <div class="saving-table" aria-label="Bundle pricing table">
-                <div><b>Packages</b><b>Package total</b><b>CORE total</b></div>
-                <div><span>CORE only</span><span>£0</span><strong>£25</strong></div>
-                <div><span>1 package</span><span>£20</span><strong>£45</strong></div>
-                <div><span>2 packages</span><span>£30</span><strong>£55</strong></div>
-                <div><span>3 packages</span><span>£37.50</span><strong>£62.50</strong></div>
-                <div><span>4 packages</span><span>£40</span><strong>£65</strong></div>
-                <div><span>5 packages</span><span>£47.50</span><strong>£72.50</strong></div>
-              </div>
-            </div>
+        <div class="bundle-value-panel glass-light">
+          <div class="saving-copy">
+            <span class="eyebrow dark">Bundle intelligence</span>
+            <h3>The more you build, the better the value.</h3>
+            <p>Start with CORE. Add packages when the next move calls. Your monthly total updates instantly, with the best bundle rate applied automatically.</p>
           </div>
 
-          <aside class="bundle-summary" aria-label="Selected CORE package summary">
-            <div class="summary-card glass-panel">
-              <span class="eyebrow">Your package</span>
-              <div class="summary-core-row">
-                <div><strong>CORE</strong><small>Complete base platform</small></div>
-                <b>£25</b>
-              </div>
-              <div class="summary-divider"></div>
-              <div class="summary-head">
-                <h3>Selected packages</h3>
-                <span id="selectedCount">0</span>
-              </div>
-              <div class="summary-list" id="summaryList"></div>
-              <div class="summary-divider"></div>
-              <div class="saving-badge" id="savingBadge">
-                <span>You save</span>
-                <strong>£0</strong>
-                <small>/ month</small>
-              </div>
-              <div class="total-row">
-                <span>Monthly total</span>
-                <strong id="monthlyTotal">£25</strong>
-              </div>
-              <a class="btn btn-primary summary-cta" href="#signup">Start with this setup</a>
-              <p class="summary-note">Prices shown monthly. State VAT treatment on checkout.</p>
-            </div>
-
-            <div class="own-app-card">
-              <span class="eyebrow dark">Want your own app?</span>
-              <h3>Your name. Your app. Your website.</h3>
-              <p>For a fully branded app and bespoke website route.</p>
-              <div><strong>£999</strong><span> setup</span></div>
-              <div><strong>£199</strong><span> / month maintenance</span></div>
-              <a href="#premium">Learn more →</a>
-            </div>
-          </aside>
+          <div class="pricing-ladder" aria-label="Bundle pricing ladder">
+            <div class="ladder-row is-head"><b>Setup</b><b>Packages</b><b>Total</b></div>
+            <div class="ladder-row" data-ladder-count="0"><span>CORE only</span><span>£0</span><strong>£25</strong></div>
+            <div class="ladder-row" data-ladder-count="1"><span>1 package</span><span>£20</span><strong>£45</strong></div>
+            <div class="ladder-row" data-ladder-count="2"><span>2 packages</span><span>£30</span><strong>£55</strong></div>
+            <div class="ladder-row" data-ladder-count="3"><span>3 packages</span><span>£37.50</span><strong>£62.50</strong></div>
+            <div class="ladder-row" data-ladder-count="4"><span>4 packages</span><span>£40</span><strong>£65</strong></div>
+            <div class="ladder-row" data-ladder-count="5"><span>All 5</span><span>£47.50</span><strong>£72.50</strong></div>
+          </div>
         </div>
       </div>
-    </section>
+
+      <aside class="bundle-summary" aria-label="Selected CORE package summary">
+        <div class="summary-card glass-panel">
+          <div class="summary-glow" aria-hidden="true"></div>
+          <span class="eyebrow">Your CORE</span>
+
+          <div class="summary-core-row">
+            <div>
+              <strong>CORE</strong>
+              <small>Bookings, payments, CRM, website, messages, vouchers and subscriptions.</small>
+            </div>
+            <b>£25</b>
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <div class="summary-head">
+            <div>
+              <h3>Power added</h3>
+              <p id="summarySubline">CORE only. Add packages when you are ready.</p>
+            </div>
+            <span id="selectedCount">0</span>
+          </div>
+
+          <div class="summary-list" id="summaryList"></div>
+
+          <div class="summary-divider"></div>
+
+          <div class="bundle-meter" aria-label="Bundle value meter">
+            <div class="meter-top">
+              <span id="meterLabel">CORE only</span>
+              <strong id="meterPercent">0%</strong>
+            </div>
+            <div class="meter-track"><i id="meterFill"></i></div>
+            <small id="meterHelp">Add packages to activate bundle pricing.</small>
+          </div>
+
+          <div class="saving-badge" id="savingBadge">
+            <span>Bundle advantage</span>
+            <strong>£0</strong>
+            <small>/ month</small>
+          </div>
+
+          <div class="total-row">
+            <span>Monthly total</span>
+            <strong id="monthlyTotal">£25</strong>
+          </div>
+
+          <a class="btn btn-primary summary-cta" href="#signup">Start with this setup</a>
+          <p class="summary-note">Prices shown monthly. VAT treatment should be stated clearly at checkout.</p>
+        </div>
+
+        <div class="own-app-card">
+          <span class="eyebrow dark">Go full headline</span>
+          <h3>Your name. Your app. Your website.</h3>
+          <p>For trainers, creators and studios ready for a fully branded customer experience.</p>
+          <div class="own-app-price"><strong>£999</strong><span> setup</span></div>
+          <div class="own-app-price"><strong>£199</strong><span> / month support</span></div>
+          <a href="#premium">Explore premium route →</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
 
     <section class="premium section-panel">
       <div class="container premium-grid reveal">
@@ -271,5 +304,6 @@
   </footer>
 
   <script src="fibodo-core.js"></script>
+  <script src="bundle-builder.js"></script>
 </body>
 </html>
