@@ -103,3 +103,42 @@ if (document.readyState === 'loading') {
 } else {
   initPage();
 }
+
+
+function initBrushScriptGlitch() {
+  const brushScript = document.querySelector('.brush-script');
+  if (!brushScript) return;
+
+  const originalText = brushScript.textContent;
+  const offerText = 'Only £25.';
+  const transitionDuration = 420;
+  const swapDelay = 170;
+  const offerDuration = 1000;
+  brushScript.dataset.text = originalText;
+
+  const setBrushText = (text, isOffer) => {
+    brushScript.textContent = text;
+    brushScript.dataset.text = text;
+    brushScript.classList.toggle('is-offer', isOffer);
+  };
+
+  const transitionTo = (text, isOffer, onSwapped) => {
+    brushScript.classList.add('is-glitching');
+    window.setTimeout(() => {
+      setBrushText(text, isOffer);
+      if (onSwapped) onSwapped();
+    }, swapDelay);
+
+    window.setTimeout(() => {
+      brushScript.classList.remove('is-glitching');
+    }, transitionDuration);
+  };
+
+  window.setTimeout(() => {
+    transitionTo(offerText, true, () => {
+      window.setTimeout(() => {
+        transitionTo(originalText, false);
+      }, offerDuration);
+    });
+  }, 1500);
+}

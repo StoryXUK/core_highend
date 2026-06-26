@@ -109,8 +109,75 @@ h1, h2 { font-weight: 950; letter-spacing: -.075em; line-height: .91; }
 h1 { margin: 28px 0 0; font-size: clamp(72px, 12vw, 164px); color: white; }
 h2 { margin: 22px 0 0; font-size: clamp(48px, 7vw, 100px); }
 h1 em, h2 em { font-style: normal; color: var(--lime); }
+h1 .brush-script {
+  position: relative;
+  isolation: isolate;
+  display: inline-block;
+  font-family: "Permanent Marker", "Brush Script MT", cursive;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: .95;
+  white-space: nowrap;
+  transform: rotate(-2deg);
+  text-shadow: 0 8px 28px rgba(230,255,46,.18);
+}
+h1 .brush-script.is-offer {
+  font-size: min(1em, 10vw);
+}
+h1 .brush-script::before,
+h1 .brush-script::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+h1 .brush-script::before {
+  color: var(--aqua);
+  z-index: -1;
+}
+h1 .brush-script::after {
+  color: var(--orange);
+  z-index: -2;
+}
+h1 .brush-script.is-glitching {
+  animation: brush-glitch-text .42s steps(2, end) 1;
+}
+h1 .brush-script.is-glitching::before {
+  opacity: .82;
+  animation: brush-glitch-before .42s steps(2, end) 1;
+}
+h1 .brush-script.is-glitching::after {
+  opacity: .72;
+  animation: brush-glitch-after .42s steps(2, end) 1;
+}
+@keyframes brush-glitch-text {
+  0%, 100% { transform: rotate(-2deg) translate(0, 0); filter: none; }
+  20% { transform: rotate(-2deg) translate(-2px, 1px); filter: contrast(1.35); }
+  42% { transform: rotate(-2deg) translate(2px, -1px); }
+  64% { transform: rotate(-2deg) translate(-1px, -2px); filter: saturate(1.45); }
+}
+@keyframes brush-glitch-before {
+  0%, 100% { clip-path: inset(0 0 72% 0); transform: translate(-5px, -1px); }
+  33% { clip-path: inset(34% 0 38% 0); transform: translate(4px, 1px); }
+  66% { clip-path: inset(72% 0 0 0); transform: translate(-3px, 2px); }
+}
+@keyframes brush-glitch-after {
+  0%, 100% { clip-path: inset(64% 0 8% 0); transform: translate(5px, 1px); }
+  40% { clip-path: inset(8% 0 70% 0); transform: translate(-4px, -1px); }
+  74% { clip-path: inset(42% 0 32% 0); transform: translate(3px, -2px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  h1 .brush-script.is-glitching,
+  h1 .brush-script.is-glitching::before,
+  h1 .brush-script.is-glitching::after {
+    animation: none;
+  }
+}
+
 p { line-height: 1.65; }
 .section-copy { max-width: 680px; margin: 24px 0 0; color: var(--muted); font-size: 18px; }
+
 
 .hero {
   overflow: hidden;
