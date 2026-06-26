@@ -17,68 +17,12 @@ const features = [
 ];
 
 const packages = [
-  {
-    id: 'client-app',
-    title: 'Client App',
-    kicker: 'Keep clients close.',
-    icon: '▯',
-    accent: '#9b5cff',
-    copy: 'Put your business in their pocket. Make booking, returning and staying connected feel effortless.',
-    bullets: ['Client booking app', 'Repeat bookings', 'Push-ready experience', 'Apple + Android route']
-  },
-  {
-    id: 'marketing',
-    title: 'Marketing',
-    kicker: 'Keep your diary moving.',
-    icon: '✉',
-    accent: '#2488d4',
-    copy: 'Create offers, send campaigns and bring clients back when the next opportunity lands.',
-    bullets: ['Email campaigns', 'Customer segmentation', 'Promotional offers', 'Campaign reporting']
-  },
-  {
-    id: 'reach',
-    title: 'Reach',
-    kicker: 'Reach more clients.',
-    icon: '⌕',
-    accent: '#34c987',
-    copy: 'Put your business in front of people looking for what you do — beyond your own followers.',
-    bullets: ['Lead capture', 'Referral tools', 'Discovery channels', 'Growth insights']
-  },
-  {
-    id: 'video',
-    title: 'Video',
-    kicker: 'Earn beyond the room.',
-    icon: '▷',
-    accent: '#ff8a1f',
-    copy: 'Go live. Sell on-demand. Turn your expertise into something people can buy again and again.',
-    bullets: ['On-demand content', 'Live streaming', 'Digital memberships', 'Video library']
-  },
-  {
-    id: 'content',
-    title: 'Content',
-    kicker: 'Keep clients switched on.',
-    icon: '▤',
-    accent: '#20c7b5',
-    copy: 'Share plans, timetables and content that keeps your value high between sessions.',
-    bullets: ['Timetables', 'Meal plans', 'Exercise plans', 'Screen advertising']
-  }
+  { title: 'Client App', kicker: 'Keep clients close.', copy: 'Put your business in their pocket. Make booking, returning and staying connected feel effortless.' },
+  { title: 'Marketing', kicker: 'Keep your diary moving.', copy: 'Create offers, send campaigns and bring clients back when the next opportunity lands.' },
+  { title: 'Reach', kicker: 'Reach more clients.', copy: 'Put your business in front of people looking for what you do — beyond your own followers.' },
+  { title: 'Video', kicker: 'Earn beyond the room.', copy: 'Go live. Sell on-demand. Turn your expertise into something people can buy again and again.' },
+  { title: 'Content', kicker: 'Keep clients switched on.', copy: 'Share plans, timetables and content that keeps your value high between sessions.' }
 ];
-
-const bundlePricing = {
-  0: 0,
-  1: 20,
-  2: 30,
-  3: 37.5,
-  4: 40,
-  5: 47.5
-};
-
-const baseCorePrice = 25;
-
-const formatGBP = value => {
-  const formatted = Number.isInteger(value) ? value.toFixed(0) : value.toFixed(2);
-  return `£${formatted}`;
-};
 
 function renderFeatureCards() {
   const grid = document.getElementById('featureGrid');
@@ -93,91 +37,16 @@ function renderFeatureCards() {
 }
 
 function renderPackageCards() {
-  const grid = document.getElementById('moduleGrid');
+  const grid = document.getElementById('packageGrid');
   if (!grid) return;
-
   grid.innerHTML = packages.map(item => `
-    <article class="module-card" style="--module-accent:${item.accent}" data-module-card="${item.id}">
-      <div class="module-top">
-        <span class="module-icon">${item.icon}</span>
-        <span class="module-price">£20 / month</span>
-      </div>
+    <article class="package-card">
       <span class="package-kicker">${item.kicker}</span>
       <h3>${item.title}</h3>
       <p>${item.copy}</p>
-      <ul>
-        ${item.bullets.map(bullet => `<li>${bullet}</li>`).join('')}
-      </ul>
-      <label class="module-select">
-        <input type="checkbox" value="${item.id}" data-module-input>
-        <span></span>
-        <b>Add package</b>
-      </label>
+      <a href="#pricing">Explore ${item.title} →</a>
     </article>
   `).join('');
-}
-
-function getSelectedPackageIds() {
-  return Array.from(document.querySelectorAll('[data-module-input]:checked')).map(input => input.value);
-}
-
-function updateBundleBuilder() {
-  const selectedIds = getSelectedPackageIds();
-  const selectedPackages = packages.filter(item => selectedIds.includes(item.id));
-  const count = selectedPackages.length;
-  const packageTotal = bundlePricing[count] || 0;
-  const monthlyTotal = baseCorePrice + packageTotal;
-  const individualTotal = count * 20;
-  const saving = Math.max(0, individualTotal - packageTotal);
-
-  document.querySelectorAll('[data-module-card]').forEach(card => {
-    card.classList.toggle('is-selected', selectedIds.includes(card.dataset.moduleCard));
-  });
-
-  const selectedCount = document.getElementById('selectedCount');
-  const summaryList = document.getElementById('summaryList');
-  const monthlyTotalEl = document.getElementById('monthlyTotal');
-  const savingBadge = document.getElementById('savingBadge');
-
-  if (selectedCount) selectedCount.textContent = String(count);
-  if (monthlyTotalEl) monthlyTotalEl.textContent = formatGBP(monthlyTotal);
-
-  if (summaryList) {
-    if (!selectedPackages.length) {
-      summaryList.innerHTML = `<p class="empty-summary">CORE only. Add packages whenever you need more power.</p>`;
-    } else {
-      const perPackage = packageTotal / count;
-      summaryList.innerHTML = selectedPackages.map(item => `
-        <div class="summary-item">
-          <span><i style="background:${item.accent}"></i>${item.title}</span>
-          <strong>${formatGBP(perPackage)}</strong>
-        </div>
-      `).join('');
-    }
-  }
-
-  if (savingBadge) {
-    savingBadge.classList.toggle('has-saving', saving > 0);
-    savingBadge.innerHTML = `<span>You save</span><strong>${formatGBP(saving)}</strong><small>/ month</small>`;
-  }
-}
-
-function bindBundleBuilder() {
-  document.querySelectorAll('[data-module-input]').forEach(input => {
-    input.addEventListener('change', updateBundleBuilder);
-  });
-
-  document.querySelectorAll('[data-bundle-action]').forEach(button => {
-    button.addEventListener('click', () => {
-      const action = button.dataset.bundleAction;
-      document.querySelectorAll('[data-module-input]').forEach(input => {
-        input.checked = action === 'all';
-      });
-      updateBundleBuilder();
-    });
-  });
-
-  updateBundleBuilder();
 }
 
 function bindMobileNav() {
@@ -221,52 +90,12 @@ function bindMagneticButtons() {
   });
 }
 
-function initBrushScriptGlitch() {
-  const brushScript = document.querySelector('.brush-script');
-  if (!brushScript) return;
-
-  const originalText = brushScript.textContent;
-  const offerText = 'Only £25.';
-  const transitionDuration = 420;
-  const swapDelay = 170;
-  const offerDuration = 1000;
-  brushScript.dataset.text = originalText;
-
-  const setBrushText = (text, isOffer) => {
-    brushScript.textContent = text;
-    brushScript.dataset.text = text;
-    brushScript.classList.toggle('is-offer', isOffer);
-  };
-
-  const transitionTo = (text, isOffer, onSwapped) => {
-    brushScript.classList.add('is-glitching');
-    window.setTimeout(() => {
-      setBrushText(text, isOffer);
-      if (onSwapped) onSwapped();
-    }, swapDelay);
-
-    window.setTimeout(() => {
-      brushScript.classList.remove('is-glitching');
-    }, transitionDuration);
-  };
-
-  window.setTimeout(() => {
-    transitionTo(offerText, true, () => {
-      window.setTimeout(() => {
-        transitionTo(originalText, false);
-      }, offerDuration);
-    });
-  }, 1500);
-}
-
 function initPage() {
   renderFeatureCards();
   renderPackageCards();
-  bindBundleBuilder();
   bindMobileNav();
   initReveal();
   bindMagneticButtons();
-  initBrushScriptGlitch();
 }
 
 if (document.readyState === 'loading') {
