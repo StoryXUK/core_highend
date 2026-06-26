@@ -1,119 +1,108 @@
-<section id="packages" class="packages section-panel section-break core-bundle-section">
-  <div class="container package-wrap reveal">
-    <div class="section-intro compact bundle-kicker-row">
-      <span class="eyebrow">Turn it up.</span>
-      <h2>Build your CORE. Your way.</h2>
-      <p>CORE gives you everything you need to run the business. Add the power-ups that match how you work, and watch your setup build in real time.</p>
+<section id="packages" class="core-packages core-six-builder section-panel section-break" aria-label="CORE package builder">
+  <div class="container">
+    <div class="core-six-heading reveal">
+      <span class="eyebrow">Pick your power.</span>
+      <div class="core-six-title-row">
+        <h2>Build your CORE.</h2>
+        <p>CORE starts at £25/month. Add only the packages that move your business forward. Bundle pricing applies automatically.</p>
+      </div>
     </div>
 
-    <div class="bundle-builder" aria-label="CORE bundle builder">
-      <div class="builder-main">
-        <div class="builder-hero glass-light">
-          <div class="builder-orb" aria-hidden="true"><span>✦</span></div>
-          <div class="builder-hero-copy">
-            <span class="eyebrow dark">Build your perfect platform</span>
-            <h3>Start with CORE. Turn up what matters.</h3>
-            <p>CORE is always <strong>£25/month</strong>. Choose the business packages that strengthen the parts of your business you want to move next.</p>
-          </div>
-          <div class="builder-metric" aria-label="CORE price">
-            <small>CORE starts at</small>
-            <strong>£25</strong>
-            <span>/ month</span>
-          </div>
+    <div class="core-six-grid reveal" data-core-builder>
+      <article class="core-package-tile" data-package-card="client-app" style="--accent:#9b5cff" tabindex="0" role="button" aria-pressed="false">
+        <div class="tile-glow"></div>
+        <div class="tile-top">
+          <span class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2M10 5h4"/></svg>
+          </span>
+          <span class="tile-state">Add</span>
+        </div>
+        <span class="tile-kicker">Keep clients close</span>
+        <h3>Client App</h3>
+        <p>Your business in every pocket.</p>
+        <input type="checkbox" value="client-app" data-package-input aria-label="Add Client App to CORE">
+      </article>
+
+      <article class="core-package-tile" data-package-card="marketing" style="--accent:#2488d4" tabindex="0" role="button" aria-pressed="false">
+        <div class="tile-glow"></div>
+        <div class="tile-top">
+          <span class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          </span>
+          <span class="tile-state">Add</span>
+        </div>
+        <span class="tile-kicker">Keep your diary moving</span>
+        <h3>Marketing</h3>
+        <p>Stay visible and bring clients back.</p>
+        <input type="checkbox" value="marketing" data-package-input aria-label="Add Marketing to CORE">
+      </article>
+
+      <article class="core-package-tile" data-package-card="reach" style="--accent:#34c987" tabindex="0" role="button" aria-pressed="false">
+        <div class="tile-glow"></div>
+        <div class="tile-top">
+          <span class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/><path d="M11 8v6M8 11h6"/></svg>
+          </span>
+          <span class="tile-state">Add</span>
+        </div>
+        <span class="tile-kicker">Reach more clients</span>
+        <h3>Reach</h3>
+        <p>Find where the next booking starts.</p>
+        <input type="checkbox" value="reach" data-package-input aria-label="Add Reach to CORE">
+      </article>
+
+      <article class="core-package-tile" data-package-card="video" style="--accent:#ff8a1f" tabindex="0" role="button" aria-pressed="false">
+        <div class="tile-glow"></div>
+        <div class="tile-top">
+          <span class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3Z"/></svg>
+          </span>
+          <span class="tile-state">Add</span>
+        </div>
+        <span class="tile-kicker">Earn beyond the room</span>
+        <h3>Video</h3>
+        <p>Sell live and on-demand sessions.</p>
+        <input type="checkbox" value="video" data-package-input aria-label="Add Video to CORE">
+      </article>
+
+      <article class="core-package-tile" data-package-card="content" style="--accent:#20c7b5" tabindex="0" role="button" aria-pressed="false">
+        <div class="tile-glow"></div>
+        <div class="tile-top">
+          <span class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+          </span>
+          <span class="tile-state">Add</span>
+        </div>
+        <span class="tile-kicker">Keep clients switched on</span>
+        <h3>Content</h3>
+        <p>Plans, timetables and client value.</p>
+        <input type="checkbox" value="content" data-package-input aria-label="Add Content to CORE">
+      </article>
+
+      <aside class="core-price-tile" aria-label="Your CORE package total">
+        <div class="price-orb" aria-hidden="true"><span id="bundleCount">0</span><small>/5</small></div>
+        <span class="eyebrow">Your CORE</span>
+        <div class="price-total">
+          <strong id="bundleTotal">£25</strong>
+          <span>/ month</span>
+        </div>
+        <p id="bundleLine">CORE only. Everything you need to get booked, get paid and keep moving.</p>
+
+        <div class="price-stack" id="priceStack">
+          <div><span>CORE</span><strong>£25</strong></div>
+          <div><span>Packages</span><strong id="packageTotal">£0</strong></div>
+          <div><span>Bundle advantage</span><strong id="bundleSaving">£0</strong></div>
         </div>
 
-        <div class="builder-toolbar">
-          <div>
-            <span class="eyebrow dark">Pick your power</span>
-            <h3>Choose your business packages</h3>
-            <p>Add one. Add all five. Bundle pricing is applied automatically.</p>
-          </div>
-          <div class="toolbar-actions" aria-label="Bundle controls">
-            <button class="mini-btn" type="button" data-bundle-action="clear">CORE only</button>
-            <button class="mini-btn mini-btn-dark" type="button" data-bundle-action="all">Select all</button>
-          </div>
+        <div class="bundle-progress" aria-hidden="true"><i id="bundleProgress"></i></div>
+
+        <div class="price-actions">
+          <button class="core-mini-action" type="button" data-bundle-action="clear">CORE only</button>
+          <button class="core-mini-action is-dark" type="button" data-bundle-action="all">All packages</button>
         </div>
 
-        <div class="module-grid" id="moduleGrid"></div>
-
-        <div class="bundle-value-panel glass-light">
-          <div class="saving-copy">
-            <span class="eyebrow dark">Bundle intelligence</span>
-            <h3>The more you build, the better the value.</h3>
-            <p>Start with CORE. Add packages when the next move calls. Your monthly total updates instantly, with the best bundle rate applied automatically.</p>
-          </div>
-
-          <div class="pricing-ladder" aria-label="Bundle pricing ladder">
-            <div class="ladder-row is-head"><b>Setup</b><b>Packages</b><b>Total</b></div>
-            <div class="ladder-row" data-ladder-count="0"><span>CORE only</span><span>£0</span><strong>£25</strong></div>
-            <div class="ladder-row" data-ladder-count="1"><span>1 package</span><span>£20</span><strong>£45</strong></div>
-            <div class="ladder-row" data-ladder-count="2"><span>2 packages</span><span>£30</span><strong>£55</strong></div>
-            <div class="ladder-row" data-ladder-count="3"><span>3 packages</span><span>£37.50</span><strong>£62.50</strong></div>
-            <div class="ladder-row" data-ladder-count="4"><span>4 packages</span><span>£40</span><strong>£65</strong></div>
-            <div class="ladder-row" data-ladder-count="5"><span>All 5</span><span>£47.50</span><strong>£72.50</strong></div>
-          </div>
-        </div>
-      </div>
-
-      <aside class="bundle-summary" aria-label="Selected CORE package summary">
-        <div class="summary-card glass-panel">
-          <div class="summary-glow" aria-hidden="true"></div>
-          <span class="eyebrow">Your CORE</span>
-
-          <div class="summary-core-row">
-            <div>
-              <strong>CORE</strong>
-              <small>Bookings, payments, CRM, website, messages, vouchers and subscriptions.</small>
-            </div>
-            <b>£25</b>
-          </div>
-
-          <div class="summary-divider"></div>
-
-          <div class="summary-head">
-            <div>
-              <h3>Power added</h3>
-              <p id="summarySubline">CORE only. Add packages when you are ready.</p>
-            </div>
-            <span id="selectedCount">0</span>
-          </div>
-
-          <div class="summary-list" id="summaryList"></div>
-
-          <div class="summary-divider"></div>
-
-          <div class="bundle-meter" aria-label="Bundle value meter">
-            <div class="meter-top">
-              <span id="meterLabel">CORE only</span>
-              <strong id="meterPercent">0%</strong>
-            </div>
-            <div class="meter-track"><i id="meterFill"></i></div>
-            <small id="meterHelp">Add packages to activate bundle pricing.</small>
-          </div>
-
-          <div class="saving-badge" id="savingBadge">
-            <span>Bundle advantage</span>
-            <strong>£0</strong>
-            <small>/ month</small>
-          </div>
-
-          <div class="total-row">
-            <span>Monthly total</span>
-            <strong id="monthlyTotal">£25</strong>
-          </div>
-
-          <a class="btn btn-primary summary-cta" href="#signup">Start with this setup</a>
-          <p class="summary-note">Prices shown monthly. VAT treatment should be stated clearly at checkout.</p>
-        </div>
-
-        <div class="own-app-card">
-          <span class="eyebrow dark">Go full headline</span>
-          <h3>Your name. Your app. Your website.</h3>
-          <p>For trainers, creators and studios ready for a fully branded customer experience.</p>
-          <div class="own-app-price"><strong>£999</strong><span> setup</span></div>
-          <div class="own-app-price"><strong>£199</strong><span> / month support</span></div>
-          <a href="#premium">Explore premium route →</a>
-        </div>
+        <a class="btn btn-primary core-price-cta" href="#signup">Start with this setup</a>
+        <small class="price-note">VAT treatment should be stated clearly at checkout.</small>
       </aside>
     </div>
   </div>

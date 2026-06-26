@@ -232,10 +232,10 @@ function initBrushScriptGlitch() {
   window.setTimeout(() => {
     brushScript.textContent = offerText;
     brushScript.dataset.text = offerText;
-    brushScript.classList.add('is-glitching');
+    brushScript.classList.add('is-glitching', 'is-offer');
 
     window.setTimeout(() => {
-      brushScript.classList.remove('is-glitching');
+      brushScript.classList.remove('is-glitching', 'is-offer');
       brushScript.textContent = originalText;
       brushScript.dataset.text = originalText;
     }, 1000);

@@ -117,8 +117,12 @@ h1 .brush-script {
   font-weight: 400;
   letter-spacing: 0;
   line-height: .95;
+  white-space: nowrap;
   transform: rotate(-2deg);
   text-shadow: 0 8px 28px rgba(230,255,46,.18);
+}
+h1 .brush-script.is-offer {
+  font-size: min(1em, 10vw);
 }
 h1 .brush-script::before,
 h1 .brush-script::after {
