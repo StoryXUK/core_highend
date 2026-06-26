@@ -141,15 +141,15 @@ h1 .brush-script::after {
   z-index: -2;
 }
 h1 .brush-script.is-glitching {
-  animation: brush-glitch-text .75s steps(2, end) infinite;
+  animation: brush-glitch-text .42s steps(2, end) 1;
 }
 h1 .brush-script.is-glitching::before {
   opacity: .82;
-  animation: brush-glitch-before .32s steps(2, end) infinite;
+  animation: brush-glitch-before .42s steps(2, end) 1;
 }
 h1 .brush-script.is-glitching::after {
   opacity: .72;
-  animation: brush-glitch-after .28s steps(2, end) infinite;
+  animation: brush-glitch-after .42s steps(2, end) 1;
 }
 @keyframes brush-glitch-text {
   0%, 100% { transform: rotate(-2deg) translate(0, 0); filter: none; }

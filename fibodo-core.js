@@ -227,18 +227,35 @@ function initBrushScriptGlitch() {
 
   const originalText = brushScript.textContent;
   const offerText = 'On-ly £25.';
+  const transitionDuration = 420;
+  const swapDelay = 170;
+  const offerDuration = 1000;
   brushScript.dataset.text = originalText;
 
-  window.setTimeout(() => {
-    brushScript.textContent = offerText;
-    brushScript.dataset.text = offerText;
-    brushScript.classList.add('is-glitching', 'is-offer');
+  const setBrushText = (text, isOffer) => {
+    brushScript.textContent = text;
+    brushScript.dataset.text = text;
+    brushScript.classList.toggle('is-offer', isOffer);
+  };
+
+  const transitionTo = (text, isOffer, onSwapped) => {
+    brushScript.classList.add('is-glitching');
+    window.setTimeout(() => {
+      setBrushText(text, isOffer);
+      if (onSwapped) onSwapped();
+    }, swapDelay);
 
     window.setTimeout(() => {
-      brushScript.classList.remove('is-glitching', 'is-offer');
-      brushScript.textContent = originalText;
-      brushScript.dataset.text = originalText;
-    }, 1000);
+      brushScript.classList.remove('is-glitching');
+    }, transitionDuration);
+  };
+
+  window.setTimeout(() => {
+    transitionTo(offerText, true, () => {
+      window.setTimeout(() => {
+        transitionTo(originalText, false);
+      }, offerDuration);
+    });
   }, 1500);
 }
 
