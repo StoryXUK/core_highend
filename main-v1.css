@@ -178,70 +178,33 @@ p { line-height: 1.65; }
 .section-copy { max-width: 680px; margin: 24px 0 0; color: var(--muted); font-size: 18px; }
 
 .hero {
-  position: relative;
   overflow: hidden;
   min-height: 940px;
   padding: 0;
+  background: var(--dark);
   color: white;
   isolation: isolate;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(5,11,10,.94) 0%,
-      rgba(5,11,10,.84) 34%,
-      rgba(5,11,10,.58) 58%,
-      rgba(5,11,10,.24) 78%,
-      rgba(5,11,10,.14) 100%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(5,11,10,.12) 0%,
-      rgba(5,11,10,.26) 52%,
-      rgba(5,11,10,.68) 100%
-    ),
-    url("../assets/Competition.webp");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
 }
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px),
-    radial-gradient(circle at 74% 24%, rgba(230,255,46,.14), transparent 34rem),
-    radial-gradient(circle at 22% 76%, rgba(255,90,31,.12), transparent 30rem);
-  background-size: 64px 64px, 64px 64px, auto, auto;
-  mask-image: radial-gradient(circle at 48% 28%, black, transparent 74%);
-  mix-blend-mode: screen;
-  z-index: -1;
-  animation: heroGlow 12s ease-in-out infinite;
-}
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0;
-  height: 34%;
-  background: linear-gradient(180deg, transparent, rgba(5,11,10,.74));
-  pointer-events: none;
-  z-index: -1;
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(circle at 45% 25%, black, transparent 72%);
+  z-index: -2;
 }
 .hero-bg {
-  display: none;
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 70% 18%, rgba(230,255,46,.18), transparent 28rem),
+    radial-gradient(circle at 25% 30%, rgba(255,90,31,.19), transparent 32rem),
+    linear-gradient(135deg, rgba(255,255,255,.045), transparent 34%);
+  z-index: -3;
 }
-@keyframes heroGlow {
-  0%, 100% {
-    transform: translate3d(0,0,0) scale(1);
-    opacity: .88;
-  }
-  50% {
-    transform: translate3d(-22px,18px,0) scale(1.045);
-    opacity: 1;
-  }
-}
-
 .orb { position: absolute; border-radius: 999px; filter: blur(28px); opacity: .75; z-index: -1; }
 .orb-a { width: 240px; height: 240px; right: 10%; top: 18%; background: rgba(230,255,46,.18); animation: float 8s ease-in-out infinite; }
 .orb-b { width: 180px; height: 180px; left: 8%; bottom: 18%; background: rgba(37,215,217,.16); animation: float 10s ease-in-out infinite reverse; }

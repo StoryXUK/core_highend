@@ -259,6 +259,19 @@ function initBrushScriptGlitch() {
   }, 1500);
 }
 
+function initRotatingRole() {
+  const role = document.querySelector('[data-rotating-role]');
+  if (!role) return;
+
+  const roles = ['Trainer', 'Coach', 'Instructor'];
+  let roleIndex = 0;
+
+  window.setInterval(() => {
+    roleIndex = (roleIndex + 1) % roles.length;
+    role.textContent = roles[roleIndex];
+  }, 1500);
+}
+
 function initPage() {
   renderFeatureCards();
   renderPackageCards();
@@ -267,6 +280,7 @@ function initPage() {
   initReveal();
   bindMagneticButtons();
   initBrushScriptGlitch();
+  initRotatingRole();
 }
 
 if (document.readyState === 'loading') {
