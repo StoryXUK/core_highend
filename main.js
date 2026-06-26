@@ -263,7 +263,7 @@ function initRotatingRole() {
   const role = document.querySelector('[data-rotating-role]');
   if (!role) return;
 
-  const roles = ['Trainer', 'Coach', 'Instructor'];
+  const roles = ['Trainer', 'Coach.', 'Instructor.'];
   let roleIndex = 0;
 
   window.setInterval(() => {

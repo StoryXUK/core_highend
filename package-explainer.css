@@ -31,7 +31,7 @@
     radial-gradient(circle at 18% 22%, rgba(230,255,46,.2), transparent 26rem),
     radial-gradient(circle at 84% 12%, rgba(37,215,217,.16), transparent 28rem),
     radial-gradient(circle at 72% 84%, rgba(255,90,31,.16), transparent 26rem),
-    url("assets/Built-Different.webp");
+   
   background-size: cover;
   background-position: center;
   opacity: 1;

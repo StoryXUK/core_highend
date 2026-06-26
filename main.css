@@ -188,18 +188,18 @@ p { line-height: 1.65; }
     linear-gradient(
       90deg,
       rgba(5,11,10,.94) 0%,
-      rgba(5,11,10,.84) 34%,
-      rgba(5,11,10,.58) 58%,
-      rgba(5,11,10,.24) 78%,
-      rgba(5,11,10,.14) 100%
+      rgba(5,11,10,.88) 34%,
+      rgba(5,11,10,.72) 58%,
+      rgba(5,11,10,.54) 78%,
+      rgba(5,11,10,.46) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(5,11,10,.12) 0%,
-      rgba(5,11,10,.26) 52%,
-      rgba(5,11,10,.68) 100%
+      rgba(5,11,10,.28) 0%,
+      rgba(5,11,10,.42) 52%,
+      rgba(5,11,10,.78) 100%
     ),
-    url("../assets/Competition.webp");
+    url("assets/Bootcamp.webp");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
