@@ -226,7 +226,7 @@ function initBrushScriptGlitch() {
   if (!brushScript) return;
 
   const originalText = brushScript.textContent;
-  const offerText = 'for only £25.';
+  const offerText = 'Only £25.';
   brushScript.dataset.text = originalText;
 
   window.setTimeout(() => {
