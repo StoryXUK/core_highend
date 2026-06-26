@@ -221,6 +221,27 @@ function bindMagneticButtons() {
   });
 }
 
+function initBrushScriptGlitch() {
+  const brushScript = document.querySelector('.brush-script');
+  if (!brushScript) return;
+
+  const originalText = brushScript.textContent;
+  const offerText = 'for only £25.';
+  brushScript.dataset.text = originalText;
+
+  window.setTimeout(() => {
+    brushScript.textContent = offerText;
+    brushScript.dataset.text = offerText;
+    brushScript.classList.add('is-glitching');
+
+    window.setTimeout(() => {
+      brushScript.classList.remove('is-glitching');
+      brushScript.textContent = originalText;
+      brushScript.dataset.text = originalText;
+    }, 1000);
+  }, 1500);
+}
+
 function initPage() {
   renderFeatureCards();
   renderPackageCards();
@@ -228,6 +249,7 @@ function initPage() {
   bindMobileNav();
   initReveal();
   bindMagneticButtons();
+  initBrushScriptGlitch();
 }
 
 if (document.readyState === 'loading') {
