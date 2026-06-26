@@ -203,6 +203,7 @@
             <h3>Client App</h3>
             <p>Put your business in every pocket and make repeat booking feel effortless.</p>
             <small>Keep clients close</small>
+            <button class="explainer-learn-more" type="button" data-package-modal-open="client-app">Learn more</button>
           </article>
 
           <article class="explainer-card" style="--accent:#2488d4">
@@ -210,6 +211,7 @@
             <h3>Marketing</h3>
             <p>Create offers, send campaigns and bring clients back when the next opportunity lands.</p>
             <small>Keep your diary moving</small>
+            <button class="explainer-learn-more" type="button" data-package-modal-open="marketing">Learn more</button>
           </article>
 
           <article class="explainer-card" style="--accent:#34c987">
@@ -217,6 +219,7 @@
             <h3>Reach</h3>
             <p>Show up beyond your own followers and help new clients discover what you do.</p>
             <small>Find the next booking</small>
+            <button class="explainer-learn-more" type="button" data-package-modal-open="reach">Learn more</button>
           </article>
 
           <article class="explainer-card" style="--accent:#ff8a1f">
@@ -224,6 +227,7 @@
             <h3>Video</h3>
             <p>Go live, sell on-demand and turn your expertise into another way to earn.</p>
             <small>Earn beyond the room</small>
+            <button class="explainer-learn-more" type="button" data-package-modal-open="video">Learn more</button>
           </article>
 
           <article class="explainer-card" style="--accent:#20c7b5">
@@ -231,6 +235,7 @@
             <h3>Content</h3>
             <p>Share plans, timetables and value that keeps clients switched on between sessions.</p>
             <small>Keep value moving</small>
+            <button class="explainer-learn-more" type="button" data-package-modal-open="content">Learn more</button>
           </article>
         </div>
 
@@ -238,6 +243,17 @@
           <p><strong>CORE stays complete at £25/month.</strong> Packages are not upgrades from a basic plan. They are focused tools for the parts of your business you want to turn up.</p>
           <a class="btn btn-outline-lime" href="#packages">Build your CORE setup</a>
         </div>
+      </div>
+      <div class="package-modal" data-package-modal hidden>
+        <div class="package-modal-backdrop" data-package-modal-close></div>
+        <section class="package-modal-panel" role="dialog" aria-modal="true" aria-labelledby="packageModalTitle" aria-describedby="packageModalCopy" tabindex="-1">
+          <button class="package-modal-close" type="button" data-package-modal-close aria-label="Close package details">×</button>
+          <span class="package-modal-kicker" data-package-modal-kicker></span>
+          <h3 id="packageModalTitle" data-package-modal-title></h3>
+          <p id="packageModalCopy" data-package-modal-copy></p>
+          <ul class="package-modal-list" data-package-modal-list></ul>
+          <a class="package-modal-cta" href="#packages" data-package-modal-close>Build your package</a>
+        </section>
       </div>
     </section>
 

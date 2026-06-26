@@ -64,6 +64,44 @@ const packages = [
   }
 ];
 
+const packageModalDetails = {
+  'client-app': {
+    title: 'Client App',
+    kicker: 'Keep clients close',
+    accent: '#9b5cff',
+    copy: 'Give clients a simple place to book, return, and stay connected with your business from their phone.',
+    details: ['Branded client booking experience', 'Fast repeat bookings for regular sessions', 'Mobile-first journey for Apple and Android users', 'A cleaner way to keep your service front of mind']
+  },
+  marketing: {
+    title: 'Marketing',
+    kicker: 'Keep your diary moving',
+    accent: '#2488d4',
+    copy: 'Turn quiet gaps into planned campaigns with offers, segmentation, and messages that bring clients back.',
+    details: ['Email campaigns for offers and updates', 'Customer groups for more relevant messages', 'Promotional routes for new services or seasonal pushes', 'Campaign reporting so you can see what worked']
+  },
+  reach: {
+    title: 'Reach',
+    kicker: 'Find the next booking',
+    accent: '#34c987',
+    copy: 'Help more people discover what you do beyond your existing audience and give new leads a route to act.',
+    details: ['Lead capture for interested clients', 'Referral tools that support word of mouth', 'Discovery channels outside your own followers', 'Growth insights to understand where demand is coming from']
+  },
+  video: {
+    title: 'Video',
+    kicker: 'Earn beyond the room',
+    accent: '#ff8a1f',
+    copy: 'Add digital training options with live and on-demand content that clients can buy wherever they are.',
+    details: ['On-demand content for repeatable value', 'Live streaming for remote sessions and classes', 'Digital memberships for scalable offers', 'Video library to organise and sell your expertise']
+  },
+  content: {
+    title: 'Content',
+    kicker: 'Keep value moving',
+    accent: '#20c7b5',
+    copy: 'Share the plans, timetables, and useful touchpoints that keep clients engaged between bookings.',
+    details: ['Timetables for classes and programming', 'Meal plans that support client goals', 'Exercise plans for structure outside sessions', 'Screen advertising and content moments in your space']
+  }
+};
+
 const bundlePricing = {
   0: 0,
   1: 20,
@@ -272,6 +310,51 @@ function initRotatingRole() {
   }, 1500);
 }
 
+function bindPackageModal() {
+  const modal = document.querySelector('[data-package-modal]');
+  if (!modal) return;
+
+  const panel = modal.querySelector('.package-modal-panel');
+  const title = modal.querySelector('[data-package-modal-title]');
+  const kicker = modal.querySelector('[data-package-modal-kicker]');
+  const copy = modal.querySelector('[data-package-modal-copy]');
+  const list = modal.querySelector('[data-package-modal-list]');
+  let activeTrigger = null;
+
+  const closeModal = () => {
+    modal.hidden = true;
+    document.body.classList.remove('has-package-modal');
+    if (activeTrigger) activeTrigger.focus();
+  };
+
+  const openModal = packageId => {
+    const details = packageModalDetails[packageId];
+    if (!details) return;
+
+    activeTrigger = document.querySelector(`[data-package-modal-open="${packageId}"]`);
+    modal.style.setProperty('--modal-accent', details.accent);
+    title.textContent = details.title;
+    kicker.textContent = details.kicker;
+    copy.textContent = details.copy;
+    list.innerHTML = details.details.map(item => `<li>${item}</li>`).join('');
+    modal.hidden = false;
+    document.body.classList.add('has-package-modal');
+    panel.focus();
+  };
+
+  document.querySelectorAll('[data-package-modal-open]').forEach(button => {
+    button.addEventListener('click', () => openModal(button.dataset.packageModalOpen));
+  });
+
+  modal.querySelectorAll('[data-package-modal-close]').forEach(button => {
+    button.addEventListener('click', closeModal);
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !modal.hidden) closeModal();
+  });
+}
+
 function initPage() {
   renderFeatureCards();
   renderPackageCards();
@@ -281,6 +364,7 @@ function initPage() {
   bindMagneticButtons();
   initBrushScriptGlitch();
   initRotatingRole();
+  bindPackageModal();
 }
 
 if (document.readyState === 'loading') {

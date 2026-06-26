@@ -30,12 +30,16 @@
     linear-gradient(90deg, rgba(5,11,10,.92), rgba(5,11,10,.7), rgba(5,11,10,.94)),
     radial-gradient(circle at 18% 22%, rgba(230,255,46,.2), transparent 26rem),
     radial-gradient(circle at 84% 12%, rgba(37,215,217,.16), transparent 28rem),
-    radial-gradient(circle at 72% 84%, rgba(255,90,31,.16), transparent 26rem),
+    radial-gradient(circle at 72% 84%, rgba(255,90,31,.16), transparent 26rem);
    
   background-size: cover;
   background-position: center;
   opacity: 1;
   z-index: -4;
+}
+
+body.has-package-modal {
+  overflow: hidden;
 }
 
 .package-explainer-wrap {
@@ -198,6 +202,147 @@
   text-transform: uppercase;
 }
 
+.explainer-learn-more {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  margin-top: 16px;
+  border: 1px solid color-mix(in srgb, var(--accent), white 16%);
+  border-radius: 999px;
+  padding: 10px 14px;
+  color: #050b0a;
+  background: color-mix(in srgb, var(--accent), white 32%);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .04em;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.explainer-learn-more:hover,
+.explainer-learn-more:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.42);
+  background: #fff;
+  outline: none;
+}
+
+.package-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.package-modal[hidden] {
+  display: none;
+}
+
+.package-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5,11,10,.78);
+  backdrop-filter: blur(12px);
+}
+
+.package-modal-panel {
+  position: relative;
+  width: min(100%, 640px);
+  max-height: min(760px, calc(100vh - 48px));
+  overflow: auto;
+  border: 1px solid color-mix(in srgb, var(--modal-accent, var(--lime)), white 20%);
+  border-radius: 30px;
+  padding: 34px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 100% 0, color-mix(in srgb, var(--modal-accent, var(--lime)), transparent 68%), transparent 42%),
+    linear-gradient(180deg, rgba(22,30,28,.98), rgba(5,11,10,.98));
+  box-shadow: 0 36px 110px rgba(0,0,0,.48);
+}
+
+.package-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(255,255,255,.08);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.package-modal-close:hover,
+.package-modal-close:focus-visible {
+  border-color: rgba(255,255,255,.36);
+  background: rgba(255,255,255,.16);
+  outline: none;
+}
+
+.package-modal-kicker {
+  display: inline-flex;
+  border: 1px solid color-mix(in srgb, var(--modal-accent, var(--lime)), white 10%);
+  border-radius: 999px;
+  padding: 8px 11px;
+  color: color-mix(in srgb, var(--modal-accent, var(--lime)), white 36%);
+  background: color-mix(in srgb, var(--modal-accent, var(--lime)), transparent 84%);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.package-modal h3 {
+  margin: 24px 42px 18px 0;
+  color: #fff;
+  font-size: clamp(38px, 6vw, 68px);
+  line-height: .9;
+  letter-spacing: -.07em;
+}
+
+.package-modal p {
+  margin: 0;
+  color: rgba(255,255,255,.72);
+  font-size: 18px;
+}
+
+.package-modal-list {
+  display: grid;
+  gap: 12px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.package-modal-list li {
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 16px;
+  padding: 14px 16px;
+  color: rgba(255,255,255,.82);
+  background: rgba(255,255,255,.06);
+  font-weight: 800;
+}
+
+.package-modal-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  border-radius: 999px;
+  padding: 13px 18px;
+  color: #050b0a;
+  background: var(--lime);
+  font-weight: 950;
+}
+
 .package-explainer-footer {
   display: flex;
   justify-content: space-between;
@@ -261,6 +406,15 @@
 
   .explainer-card {
     min-height: 260px;
+  }
+
+  .package-modal {
+    padding: 16px;
+  }
+
+  .package-modal-panel {
+    border-radius: 24px;
+    padding: 28px 22px;
   }
 
   .package-explainer-footer .btn {
