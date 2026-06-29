@@ -6,7 +6,7 @@
 (function () {
   const BASE_PRICE = 25;
   const PACKAGE_PRICE_SINGLE = 20;
-  const BUNDLE_TOTALS = { 0: 0, 1: 20, 2: 30, 3: 37.5, 4: 40, 5: 47.5 };
+  const BUNDLE_TOTALS = { 0: 0, 1: 20, 2: 35, 3: 45, 4: 50, 5: 55 };
 
   const packageNames = {
     'client-app': 'Client App',
