@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CORE by fibodo — Consumer Help Centre</title>
+  <meta name="description" content="Find answers to common CORE by fibodo account, booking, payment, voucher and privacy questions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="help-centre.css" />
+</head>
+<body>
+  <header class="help-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="CORE by fibodo home"><span>CORE</span><small>by fibodo</small></a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">Menu</button>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#categories">Explore</a>
+        <a href="#questions">Popular FAQs</a>
+        <a class="is-active" href="#top">Help Centre</a>
+      </nav>
+      <div class="header-actions">
+        <button class="language" type="button" aria-label="Change language">◎ English</button>
+        <a class="login-link" href="#login">Log in</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="help-hero">
+      <div class="hero-media" aria-hidden="true"></div>
+      <div class="container hero-content reveal">
+        <span class="eyebrow">Help Centre</span>
+        <h1>Consumer Help Centre</h1>
+        <p>Got a question? We’ve got answers. Search account, booking, payment, voucher and privacy support in seconds.</p>
+
+        <form class="search-card" role="search" aria-label="Search help articles">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="helpSearch" type="search" placeholder="Search for help articles and answers..." autocomplete="off" />
+          <button type="submit">Search FAQs</button>
+        </form>
+
+        <div class="popular-links" aria-label="Popular searches">
+          <span>Popular:</span>
+          <button type="button" data-search="password">Change password</button>
+          <button type="button" data-search="reschedule">Reschedule booking</button>
+          <button type="button" data-search="refund">Refunds</button>
+          <button type="button" data-search="voucher">Vouchers</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" class="help-section categories-section">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="eyebrow dark">Explore support</span>
+          <h2>What do you need help with?</h2>
+          <p>Choose a category or search above. Each section gives you fast, practical answers for using CORE as a customer.</p>
+        </div>
+
+        <div class="category-grid reveal" id="categoryGrid">
+          <article class="category-card" data-category="account profile password name dob delete account">
+            <div class="card-top"><span class="card-icon">●</span><b>01</b></div>
+            <h3>Account & Profile</h3>
+            <ul><li>Change your password</li><li>Edit your name and number</li><li>Update date of birth</li></ul>
+            <a href="#questions">View answers →</a>
+          </article>
+          <article class="category-card" data-category="login access invitation email account sign in">
+            <div class="card-top"><span class="card-icon">▣</span><b>02</b></div>
+            <h3>Login & Access</h3>
+            <ul><li>Log in to your account</li><li>Reset access details</li><li>Missing invitation email</li></ul>
+            <a href="#questions">View answers →</a>
+          </article>
+          <article class="category-card" data-category="booking confirmation reminder calendar learn more book session">
+            <div class="card-top"><span class="card-icon">▦</span><b>03</b></div>
+            <h3>Bookings</h3>
+            <ul><li>Booking confirmations</li><li>Session reminders</li><li>Add bookings to calendar</li></ul>
+            <a href="#questions">View answers →</a>
+          </article>
+          <article class="category-card" data-category="changes cancellations refunds reschedule cancel session booking fee">
+            <div class="card-top"><span class="card-icon">↺</span><b>04</b></div>
+            <h3>Changes & Refunds</h3>
+            <ul><li>Reschedule your booking</li><li>Cancel a session</li><li>Request a refund</li></ul>
+            <a href="#questions">View answers →</a>
+          </article>
+          <article class="category-card" data-category="voucher offer code promo redeem select gift card">
+            <div class="card-top"><span class="card-icon">◆</span><b>05</b></div>
+            <h3>Vouchers & Offers</h3>
+            <ul><li>Use a voucher</li><li>Select an offer</li><li>Get a refund on a voucher</li></ul>
+            <a href="#questions">View answers →</a>
+          </article>
+          <article class="category-card" data-category="payments fees booking fee app fee download card payment online">
+            <div class="card-top"><span class="card-icon">£</span><b>06</b></div>
+            <h3>Payments & Fees</h3>
+            <ul><li>Booking fees explained</li><li>When payment arrives</li><li>Change card details</li></ul>
+            <a href="#questions">View answers →</a>
+          </article>
+          <article class="category-card" data-category="family friends children book family account session">
+            <div class="card-top"><span class="card-icon">☷</span><b>07</b></div>
+            <h3>Family & Friends</h3>
+            <ul><li>Book for someone else</li><li>Family accounts</li><li>Children’s sessions</li></ul>
+            <a href="#questions">View answers →</a>
+          </article>
+          <article class="category-card" data-category="providers messaging contact message provider cancel show up">
+            <div class="card-top"><span class="card-icon">✉</span><b>08</b></div>
+            <h3>Providers & Messaging</h3>
+            <ul><li>Contact your provider</li><li>Message support</li><li>Provider cancellations</li></ul>
+            <a href="#questions">View answers →</a>
+          </article>
+          <article class="category-card" data-category="privacy security safe data marketing share details">
+            <div class="card-top"><span class="card-icon">◈</span><b>09</b></div>
+            <h3>Privacy & Security</h3>
+            <ul><li>How your data is used</li><li>Account security</li><li>Marketing preferences</li></ul>
+            <a href="#questions">View answers →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="questions" class="help-section faq-section">
+      <div class="container faq-layout">
+        <div class="faq-main reveal">
+          <div class="section-title compact">
+            <span class="eyebrow dark">Popular questions</span>
+            <h2>Straight answers. No waiting around.</h2>
+          </div>
+
+          <div class="accordion" id="faqAccordion">
+            <article class="faq-item is-open" data-faq="password account profile change">
+              <button class="faq-question" type="button">How do I change my password?<span></span></button>
+              <div class="faq-answer"><p>Go to Account Details in the app menu and select Change Password. Enter your current password and your new password twice, then save.</p></div>
+            </article>
+            <article class="faq-item" data-faq="reminder session booking notification">
+              <button class="faq-question" type="button">Do I get a reminder before my session?<span></span></button>
+              <div class="faq-answer"><p>Yes. You’ll usually receive a reminder by email or app notification before your activity start time, depending on your notification settings.</p></div>
+            </article>
+            <article class="faq-item" data-faq="reschedule booking change session">
+              <button class="faq-question" type="button">How do I reschedule my booking?<span></span></button>
+              <div class="faq-answer"><p>To reschedule, cancel the original booking and make a new one. If your session is close to starting, contact your provider directly via messaging.</p></div>
+            </article>
+            <article class="faq-item" data-faq="booking fee payment app download">
+              <button class="faq-question" type="button">Do I have to pay a booking fee?<span></span></button>
+              <div class="faq-answer"><p>Our app is free to download. Any booking fee is clearly shown at checkout before you confirm your booking.</p></div>
+            </article>
+            <article class="faq-item" data-faq="refund cancelled refund time money">
+              <button class="faq-question" type="button">How long does it take to get a refund?<span></span></button>
+              <div class="faq-answer"><p>If eligible, refunds are automated and usually received within five working days to your original payment method.</p></div>
+            </article>
+            <article class="faq-item" data-faq="voucher offer code redeem select">
+              <button class="faq-question" type="button">How do I use a voucher or offer?<span></span></button>
+              <div class="faq-answer"><p>Choose the relevant session or product, then apply your voucher or select the available offer during checkout before confirming payment.</p></div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="support-rail reveal" aria-label="Support contact details">
+          <article class="support-card primary">
+            <span class="support-icon">◎</span>
+            <h3>Still need help?</h3>
+            <p>Our support team is here for you.</p>
+            <a class="btn btn-primary" href="mailto:hello@corebyfibodo.com">Contact Support</a>
+            <div class="support-meta"><b>Email us</b><span>hello@corebyfibodo.com</span></div>
+            <div class="support-meta"><b>Support hours</b><span>Mon – Fri, 9am – 6pm GMT</span></div>
+          </article>
+
+          <article class="support-card safety">
+            <span class="support-icon">◇</span>
+            <h3>Safety first</h3>
+            <p>Your safety is our priority. Learn how we protect your privacy and data.</p>
+            <a href="#privacy">Learn more →</a>
+          </article>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <a class="brand" href="#top"><span>CORE</span><small>by fibodo</small></a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#about">About CORE</a>
+        <a href="#careers">Careers</a>
+        <a href="#partners">Partner with us</a>
+        <a href="#terms">Terms of Use</a>
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#cookies">Cookie Policy</a>
+      </nav>
+      <div class="socials" aria-label="Social links"><a href="#">IG</a><a href="#">f</a><a href="#">▶</a><a href="#">♪</a></div>
+    </div>
+  </footer>
+
+  <script src="help-centre.js"></script>
+</body>
+</html>
